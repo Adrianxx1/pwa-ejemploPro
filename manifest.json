@@ -9,22 +9,22 @@
     "orientation": "portrait",
     "icons": [
         {
-            "src": "icons/icon-96x96.png",
+            "src": "/pwa-ejemploPro/icons/icon-96x96.png",
             "sizes": "96x96.png",
             "type": "image/png"
         },
         {
-            "src": "icons/icon-180x180.png",
+            "src": "/pwa-ejemploPro/icons/icon-180x180.png",
             "sizes": "180x180.png",
             "type": "image/png"
         },
         {
-            "src": "icons/icon-192x192.png",
+            "src": "/pwa-ejemploPro/icons/icon-192x192.png",
             "sizes": "192x192.png",
             "type": "image/png"
         },
         {
-            "src": "icons/icon-512x512.png",
+            "src": "/pwa-ejemploPro/icons/icon-512x512.png",
             "sizes": "512x512.png",
             "type": "image/png"
         }

@@ -6,7 +6,7 @@
     <title>Mi primera PWA</title>
 
     <!-- Vincular el manifest -->
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="/pwa-ejemploPro/manifest.json">
 
     <!-- Control de la barra de navegacion -->
     <meta name="theme-color" content="#2196f3">
@@ -20,7 +20,7 @@
     <!-- Registrar el Service Worker -->
     <script>
         if ('serviceWorker' in navigator){
-            navigator.serviceWorker.register('sw.js')
+            navigator.serviceWorker.register('/pwa-ejemploPro/sw.js')
             .then(reg => consoloe.log("Service Worker registrado"))
             .catch(err => console.log("Error al registrar el Service Worker"))
         }
