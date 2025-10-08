@@ -2,7 +2,7 @@
 
 //1. Nombre y archivos a cachear
 const CACHE_NAME = "mi-pwa-cache-v1";
-const BASE_PATH = "/pwa-ejemploPro/"; // Asegúrate de que esta ruta sea correcta
+const BASE_PATH = "pwa-ejemploPro/"; // Asegúrate de que esta ruta sea correcta
 const urlsToCache = [
     `${BASE_PATH}index.html`,
     `${BASE_PATH}manifest.json`,
