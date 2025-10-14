@@ -8,9 +8,6 @@
     <!-- Vincular el manifest -->
     <link rel="manifest" href="./manifest.json">
     
-    <!-- Para iOS -->
-    <link rel="apple-touch-icon" href="./icons/icon-192x192.png">
-    
     <!-- Control de la barra de navegacion -->
     <meta name="theme-color" content="#2196f3">
 </head>
@@ -24,8 +21,8 @@
     <script>
         if ('serviceWorker' in navigator){
             navigator.serviceWorker.register('./sw.js')
-            .then(reg => console.log("Service Worker registrado", reg))
-            .catch(err => console.log("Error al registrar el Service Worker", err))
+            .then(reg => console.log("Service Worker registrado"))
+            .catch(err => console.log("Error al registrar el Service Worker"))
         }
     </script>
 </body>
