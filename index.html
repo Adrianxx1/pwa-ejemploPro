@@ -17,18 +17,17 @@
     
     <button onclick="alert('Hola desde la PWA')">Click aqui</button>
 
-   <ul>
-    <li><a href="./index.html">Inicio</a></li>
-    <li><a href="./login.html">Iniciar Sesión</a></li>
-</ul>
+    <ul>
+        <li><a href="./index.html">Inicio</a></li>
+        <li><a href="./login.html">Iniciar Sesión</a></li>
+    </ul>
 
-    
     <!-- Registrar el Service Worker -->
     <script>
         if ('serviceWorker' in navigator){
             navigator.serviceWorker.register('./sw.js')
             .then(reg => console.log("Service Worker registrado"))
-            .catch(err => console.log("Error al registrar el Service Worker"))
+            .catch(err => console.log("Error al registrar el Service Worker", err));
         }
     </script>
 </body>
