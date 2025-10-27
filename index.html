@@ -1,32 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi primera PWA</title>
-    
-    <link rel="manifest" href="./manifest.json">
-    
-    <meta name="theme-color" content="#2196f3">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi primera PWA</title>
+
+  <!-- Vincular el manifest -->
+  <link rel="manifest" href="./manifest.json">
+
+  <!-- Control de la barra de navegación -->
+  <meta name="theme-color" content="#2196f3">
+
+  <!-- Añadir íconos (ajusta las rutas según tus imágenes) -->
+  <link rel="icon" href="./icons/icon-192x192.png" type="image/png">
+  <link rel="apple-touch-icon" href="./icons/icon-192x192.png">
 </head>
 <body>
-    <h1>Bienvenido a la mejor PWA</h1>
-    <p>Se puede instalar como aplicacion en tu movil</p>
-    
-    <button onclick="alert('Hola desde la PWA')">Click aqui</button>
+  <h1>Bienvenido a mi PWA</h1>
+  <p>Se puede instalar como aplicación en tu celular 🌠</p>
 
-    <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="login.html">Iniciar Sesión</a></li>
-    </ul>
+  <button onclick="alert('Hola desde la PWA')">Click aquí</button>
 
-    <script>
-        if ('serviceWorker' in navigator){
-            // El SW está en la misma carpeta, la ruta relativa es correcta.
-            navigator.serviceWorker.register('./sw.js')
-            .then(reg => console.log("Service Worker registrado"))
-            .catch(err => console.log("Error al registrar el Service Worker", err));
-        }
-    </script>
+  <ul>
+    <li><a href="./index.html">Inicio</a></li>
+    <li><a href="./login.html">Iniciar Sesión</a></li>
+  </ul>
+
+  <!-- Botón para instalar la app -->
+  <button id="btnInstalar" style="display:none;">📲 Instalar aplicación</button>
+
+  <script>
+    // Registrar el Service Worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js')
+        .then(() => console.log("✅ Service Worker registrado"))
+        .catch(err => console.error("❌ Error al registrar SW:", err));
+    }
+
+    // Evento para mostrar el botón de instalación
+    let deferredPrompt;
+    const btnInstalar = document.getElementById('btnInstalar');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      btnInstalar.style.display = 'block';
+    });
+
+    btnInstalar.addEventListener('click', async () => {
+      btnInstalar.style.display = 'none';
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        console.log(`Instalación: ${outcome}`);
+        deferredPrompt = null;
+      }
+    });
+  </script>
 </body>
 </html>
